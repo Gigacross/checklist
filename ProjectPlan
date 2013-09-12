@@ -1,0 +1,99 @@
+project plan:
+
+Rule 1: Any interactions on the browser is considered 1 change
+Rule 2: Only 1 change is allowed per user action
+Rule 3: All changes are saved and updated immediately
+
+Database factors:
+data may not exist in order in the DB
+use coordinates to organise data
+
+
+Object properties - 1 object only
+item = {
+	"content" : "value",
+	A : { x, y }, //current Location
+	B : { x, y }, //Existence/Identity of Children
+	c : { x, y }  //Existence/Identity of sibling
+};
+
+User = {
+	"user" : "userID",
+	"email" : "userEmail",
+	"other" : "otherDetails..."
+};
+
+List = {
+	"userID" : "userID",
+	"item"
+}
+
+Functions:
+
+Jquery:
+Each browser event returns an event object.
+Pass location of current Object through event.
+
+2 database functions:
+prevItem(A) { //returns previous item given location of an item
+	//previous item exists on the y=y-1 line,
+	//there should always only be 1 item on that line, therefore it is safe to assume position of y
+	//the previous item is either a sibling, a child or another parent.
+	//if prev item is sibling, coordinate will be x, y-1
+	//if prev item is child, coordinate will be x+1, y-1
+	//if prev item is parent, coordinate will be <x, y-1
+	//on the line of y-1, find x. Has to be A coordinate because A is unique.
+	prevX = X+1;
+	prevY = Y-1;
+	while ( collection.findOne({ A: {prevX, prevY} })) {
+		prevX = prevX-1;
+	}
+	return collection.findOne({A :{prevX, prevY}})
+}
+nextItem(A) { //returns next item given location of an item
+	//next item exists on the y=y+1 line,
+	//there should always be only 1 item on that line
+	//the next item is either a sibling, a child or another parent.
+	//if next item is sibling, coordinate will be x, y+1
+	//if next item is child, coordinate will be x+1, y+1
+	//if next item is parent, coordinate will be  <x, y+1
+	var nextX, nextY;
+	nextX = X+1;
+	nextY = Y+1;
+	while ( collection.findOne({ A: {nextX, nextY} })) {
+		nextX = nextX-1;
+	}
+	return collection.findOne( {A :{nextX, nextY});
+}
+
+function insertItem(,[position of last item]) {
+	// position of last item is needed unless it is the first item
+	if (posLastItem exists) {
+		posNextItem = x,y+1
+	}
+	renderList();
+}
+//Template call= Template.list.renderList
+//list is the name of the template
+//renderList is the name of the function.
+function renderList() { //render the list on html
+	collection.find(...sort{A.Y}); //get the collection associated with the user or listID sorted in Y ascending order
+	return the collection.
+}
+/*
+<template name = "somelist" >
+	{{#each item}}
+		{{indentation}}{{content}}{{A}}
+	{{/each}}
+</template>
+Template.list.indentation = function (){
+	if (this.A.X > 0) {
+		var dents = "";
+		for ( i=0; i<x; i++ ) {
+			dents = dents + "    ";
+		}
+	}
+	return dents;
+}
+
+find out where the item is being inserted, 0

@@ -1,0 +1,14 @@
+List of client functions:
+
+InsertItem -- insert the next item given current item location
+DeleteItem -- delete the current item given current item location
+NextItem -- returns the next item given current item location
+PrevItem -- returns the previous item given current item location
+RenderList -- renders the list
+
+needs:
+Features: 
+Drag + Drop => re-arrange map
+Onclick => float => drop
+
+
