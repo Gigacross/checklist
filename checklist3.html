@@ -1,20 +1,26 @@
 <head>
   <title>checklist3</title>
-  <rel link="stylesheet" type="text/css" href="/stylesheets/style.css"
+  <rel link="stylesheet" type="text/css" href="/stylesheets/style.css" >
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
 </head>
 
 <body>
 
-	<div class="topbuttons">
+	<div class="topButtons">
+		{{> topButtons}}
 	</div>
-	<div class="mainSection">
+	<div class="mainSection" id="main">
   		{{> maindocument}}
 	</div>
 </body>
 
 <template name="maindocument">
- helloworld
+	<button id="createList">create list</button>
+		<div id="chkList"></div>
+		
 </template>
 
 <template name="topButtons">
+	
 </template>
