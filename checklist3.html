@@ -7,20 +7,37 @@
 
 <body>
 
-	<div class="topButtons">
-		{{> topButtons}}
+	<div class="leftpane">
+		{{>leftpane}}
 	</div>
 	<div class="mainSection" id="main">
   		{{> maindocument}}
+  		{{> userprofile}}
 	</div>
 </body>
 
 <template name="maindocument">
-	<button id="createList">create list</button>
+	<button id="createlist">create list</button>
+		<h1 name="listtitle" id="" >Untitled Checklist</h1>
 		<div id="chkList"></div>
-		
 </template>
 
-<template name="topButtons">
-	
+<template name="leftpane">
+	<div>some text</div>
+</template>
+
+<template name="userprofile">
+	<div>
+		<h2>User Profile:</h2>
+		<h2>Collaborators: </h2>
+		<h2>Your Checklists: </h2>
+		<h2>Your Archive: </h2>
+		<h2>Checklist in Use: </h2>
+	</div>
+</template>
+
+<template name="mainmenu">
+	<div id="mainmenu">
+		<button>
+	</div>
 </template>
