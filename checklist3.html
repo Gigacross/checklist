@@ -9,6 +9,7 @@
 
 	<div class="leftpane">
 		{{>leftpane}}
+
 	</div>
 	<div class="mainSection" id="main">
   		{{> maindocument}}
@@ -18,12 +19,12 @@
 
 <template name="maindocument">
 	<button id="createlist">create list</button>
-		<h1 name="listtitle" id="" >Untitled Checklist</h1>
-		<div id="chkList"></div>
+
 </template>
 
 <template name="leftpane">
 	<div>some text</div>
+	{{> mainmenu}}
 </template>
 
 <template name="userprofile">
@@ -38,6 +39,10 @@
 
 <template name="mainmenu">
 	<div id="mainmenu">
-		<button>
+		<button id="Home" class="mainbuttons">Home</button>
+		<button id="createlist" class="mainbuttons">Create List</button>
+		<button id="Repository" class="mainbuttons">Repository </button>
+		<button id="Archive" class="mainbuttons">View Archive</button>
+		<button id="slideme" class="mainbuttons">slide test button </button>
 	</div>
 </template>

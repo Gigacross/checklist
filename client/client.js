@@ -8,10 +8,12 @@ var input = $("<li><input></li>");
       // template data, if any, is available in 'this'
       if (typeof console !== 'undefined')
         console.log("You pressed the button");
-        createList();
-        createListTitle();
-
     },
+    'keypress input' : function (enterKey) {
+      //console.log(enterKey);
+    }
+  });
+  Template.ListMasterRender.events({
     'click h1' : function () {
       var listTitle = prompt("Please enter a title","Untitled Checklist");
         if (listTitle != "") {
@@ -21,9 +23,6 @@ var input = $("<li><input></li>");
           document.getElementsByName('listtitle')[0].innerHTML = "Untitled Checklist";
         }
      },
-    'keypress input' : function (enterKey) {
-      //console.log(enterKey);
-    },
     'keydown input' : function (keyTrigger) {
       //console.log(keyTrigger);
       if (keyTrigger.keyIdentifier == "Enter") {
@@ -45,6 +44,42 @@ var input = $("<li><input></li>");
       }
     }
   });
+  Template.mainmenu.events({
+    'click #slideme' : function () {
+      $("#slidepane").animate({
+        left: '+=600'
+      })
+    },
+    'click #createlist' : function (){
+      $('#main').append(Template.slidepane);
+      $('#slidepane').append(Template.ListMasterRender);
+      createList();
+      createListTitle();
+      ListMasterRenderEvents();
+      $("#slidepane").delegate("#close", "click", function slideLeft() {
+          console.log("slideleft()");
+          $("#slidepane").animate({
+          left: '-=600'
+      })
+  })
+    }
+  });
+  /*Template.slidepane.events({
+    'click #close' : function(){
+      console.log("clicked close");
+      $("#slidepane").animate({
+        left: '-=600'
+      })
+    }
+  });*/
+  function ListMasterRenderEvents (){
+    document.getElementById("close").onClick = function (e){
+      console.log("closeme");
+      $("#slidepane").animate({
+        left: '-=600'
+      })
+    }
+  }
   function listInit() {
     //initialise an empty title and an empty first input field.
 
@@ -60,7 +95,7 @@ var input = $("<li><input></li>");
   function createList(){
     //1st item is created, update database with 1st item
     var idInit = newItem();
-    document.getElementById('chkList').innerHTML = '<ul id="listmaster"><li id='+idInit+' ><input></li> </ul>';
+    document.getElementById('chkList').innerHTML = '<ul id="listmaster"><li id='+idInit+' ><input></li></ul>';
   }
   function newItem() {
     var idInit = appDB.insert({
@@ -86,9 +121,14 @@ var input = $("<li><input></li>");
   function yPosInit(eventHdlr) { //retrieve the y position
     //check for the previous Y value and copies it, if previous Y value doesn't exists, the default is 0;
   }
-
+function slideLeft() {
+    console.log("slideleft()");
+    $("#slidepane").animate({
+      left: '-=600'
+    })
+  }
 $(function(){
   $('#listmaster').sortable();
-  $('#listmasterÍ').disableSelection();
-  
-  })
+  $('#listmasterÍ').disableSelection(); 
+
+})
