@@ -1,5 +1,15 @@
 <template name="ListMasterRender" >
 		<h1 name="listtitle" id="" >Untitled Checklist</h1>
 		<div id="chkList"></div>
+
+
 </template>
 
+<template name="renderExistingList" >
+	<h1>{{title}}</h1>
+	<ul>
+		{{#each listItems}}
+			<li>{{content}}</li>
+		{{/each}}
+	</ul>
+</template>

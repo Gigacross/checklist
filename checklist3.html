@@ -6,24 +6,25 @@
 </head>
 
 <body>
+	{{loginButtons}}
 
+	{{#if currentUser}}
 	<div class="leftpane">
 		{{>leftpane}}
 
 	</div>
 	<div class="mainSection" id="main">
+
   		{{> maindocument}}
   		{{> userprofile}}
 	</div>
+	{{/if}}
 </body>
 
 <template name="maindocument">
-	<button id="createlist">create list</button>
-
 </template>
 
 <template name="leftpane">
-	<div>some text</div>
 	{{> mainmenu}}
 </template>
 
@@ -39,10 +40,10 @@
 
 <template name="mainmenu">
 	<div id="mainmenu">
-		<button id="Home" class="mainbuttons">Home</button>
-		<button id="createlist" class="mainbuttons">Create List</button>
-		<button id="Repository" class="mainbuttons">Repository </button>
-		<button id="Archive" class="mainbuttons">View Archive</button>
-		<button id="slideme" class="mainbuttons">slide test button </button>
+		<div id="createlist" class="mainbuttons">Create List</div>
+		<div id="activelist" class="mainbuttons">Active</div>
+		<div id="repository" class="mainbuttons">Repository </div>
+		<div id="Archive" class="mainbuttons">Archive</div>
+		<div id="slideme" class="mainbuttons">slide test button</div>
 	</div>
 </template>

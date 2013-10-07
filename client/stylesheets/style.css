@@ -1,3 +1,8 @@
+@font-face {
+	font-family: PTSansCaption;
+	src: url('/PT-Sans/PTC55F.ttf');
+}
+
 body {
 	
 }
@@ -11,34 +16,33 @@ body {
 .mainSection {
 	width: 70%;
 	float: right;
-	background-image: url("/retina_wood.png");
 	height:1000px;
 	z-index: 0;
 }
 .leftpane {
 	float: left;
-	width: 30%;
+	width: 25%;
 	height: 1000px;
-	background: #d6f9ff; /* Old browsers */
-	background: -moz-linear-gradient(top,  #d6f9ff 0%, #9ee8fa 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d6f9ff), color-stop(100%,#9ee8fa)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #d6f9ff 0%,#9ee8fa 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #d6f9ff 0%,#9ee8fa 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #d6f9ff 0%,#9ee8fa 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #d6f9ff 0%,#9ee8fa 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6f9ff', endColorstr='#9ee8fa',GradientType=0 ); /* IE6-9 */
 	z-index: 2;
 }
 .mainbuttons {
 	position: relative;
 	float: right;
-	width: 120px;
+	width: 180px;
+	font-size: 34px;
+	line-height: 45px;
+	color: #D8D2D2;
+}
+.mainbuttons:hover {
+	color: #000000;
+	text-shadow: 10px 10px 5px #888888;
+	cursor: pointer;
 }
 
 
 #slidepane {
 	position: absolute;
-	left: -0px;
+	left: 30%;
 	height: 800px;
 	width: 700px;
 	background-color: #33339F;
@@ -47,6 +51,10 @@ body {
 }
 
 #mainmenu {
-	width  :120px;
+	font-family: PTSansCaption;
+	width  :180px;
 	float: right;
+	position: relative;
+	top: 150px;
+	right: 20px;
 }

@@ -1,3 +1,7 @@
 <template name="listrepo">
-	
+	<ul>
+		{{#each listsCollection}}
+			<li id="{{this._id}}">{{title}}</li>
+		{{/each}}
+	</ul>
 </template>
